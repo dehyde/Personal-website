@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Bootstrap & Jekyll Demo
+title: Your awesome title
 description: A showcase of Bootstrap 5 and Jekyll features working together
 baseurl: "/Personal-website"  # the subpath of your site
 url: "https://dehyde.github.io"  # your github pages URL
