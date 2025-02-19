@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Bootstrap & Jekyll Showcase
+title: Bootstrap & Jekyll Showcase - {{ site.title }}
 ---
 
 <!-- Hero Section -->
@@ -191,4 +191,11 @@ title: Bootstrap & Jekyll Showcase
             observer.observe(el);
         });
     });
-</script> 
+</script>
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+
+<a class="navbar-brand" href="{{ site.baseurl }}/">
+    <i class="bi bi-bootstrap-fill me-2"></i>{{ site.title }}
+</a> 
