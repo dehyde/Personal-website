@@ -3,40 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <title>Sketch 1 - Bouncing Ball</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+  <script src="addScreenPositionFunction.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-<script>
-  let x, y;
-  let xSpeed, ySpeed;
-
-  function setup() {
-    createCanvas(windowWidth, windowHeight);
-    x = width / 2;
-    y = height / 2;
-    xSpeed = 5;
-    ySpeed = 3;
-  }
-
-  function draw() {
-    background(200);
-    x += xSpeed;
-    y += ySpeed;
-
-    if (x > width || x < 0) {
-      xSpeed *= -1;
-    }
-    if (y > height || y < 0) {
-      ySpeed *= -1;
-    }
-
-    fill(255, 0, 0);
-    ellipse(x, y, 50, 50);
-  }
-
-  function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-  }
-</script>
 </body>
 </html> 
