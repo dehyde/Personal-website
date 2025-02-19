@@ -101,6 +101,8 @@ function updateBufferSizes() {
     let hslSize = getDesiredBufferSize('HSL');
     let labSize = getDesiredBufferSize('LAB');
     
+    setAttributes('alpha', true);
+    
     if (rgbGraphics && (rgbGraphics.width !== rgbSize.w || rgbGraphics.height !== rgbSize.h)) {
         rgbGraphics = createGraphics(rgbSize.w, rgbSize.h, WEBGL);
         setupGraphics(rgbGraphics);
@@ -124,6 +126,9 @@ function setup() {
     // Use the full available window dimensions.
     cnv = createCanvas(windowWidth, windowHeight);
     cnv.position(0, 0);
+
+    // Set WebGL attributes globally before creating graphics
+    setAttributes('alpha', true);
 
     // Initialize rotations for each color space.
     Object.keys(cameraRotations).forEach(space => {
