@@ -1,20 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>p5.js Exhibition</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Single Page Sketch Transitions with Sketch Folders</title>
+    <style>
+         body, html {
+           margin: 0;
+           padding: 0;
+           width: 100%;
+           height: 100%;
+           background: #222; /* persistent background */
+         }
+         #iframe-container {
+           position: relative;
+           width: 100%;
+           height: 100%;
+           overflow: hidden;
+         }
+         .sketch-iframe {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           border: none;
+           opacity: 0;
+           transition: opacity 0.5s ease-in-out;
+           pointer-events: none;
+         }
+         .sketch-iframe.active {
+           opacity: 1;
+           pointer-events: auto;
+         }
+         #controls {
+           position: absolute;
+           top: 10px;
+           left: 10px;
+           z-index: 10;
+         }
+    </style>
 </head>
 <body>
-  <div id="header">Sketch 1: Bouncing Ball</div>
-  <div id="sidebar">
-    <div class="card" data-folder="sketch1">Sketch 1: Bouncing Ball</div>
-    <div class="card" data-folder="sketch2">Sketch 2: Rotating Square</div>
-    <div class="card" data-folder="sketch3">Sketch 3: Moving Lines</div>
-    <div class="card" data-folder="sketch4">Sketch 4: Animated Noise</div>
-  </div>
-  <iframe id="sketchFrame" src="sketch1/index.html" frameborder="0"></iframe>
-  <div id="loader">Loading...</div>
-  <script src="js/main.js"></script>
+    <div id="iframe-container">
+      <iframe id="iframe1" class="sketch-iframe"></iframe>
+      <iframe id="iframe2" class="sketch-iframe"></iframe>
+    </div>
+    <div id="controls">
+      <button id="prevSketch">Previous Sketch</button>
+      <button id="nextSketch">Next Sketch</button>
+    </div>
+    
+    <script>
+       // Array of sketch URLs from the sketch folders
+       const sketches = [
+         "sketch1/index.html",
+         "sketch2/index.html"
+         // Add additional sketches here if necessary
+       ];
+       
+       let currentSketchIndex = 0;
+       let activeIframeIndex = 0; // can be 0 or 1
+       
+       const iframe1 = document.getElementById('iframe1');
+       const iframe2 = document.getElementById('iframe2');
+       const iframes = [iframe1, iframe2];
+       
+       // Initialize first sketch on the active iframe
+       iframes[activeIframeIndex].src = sketches[currentSketchIndex];
+       iframes[activeIframeIndex].classList.add('active');
+       
+       function switchSketch(newIndex) {
+         const inactiveIframeIndex = 1 - activeIframeIndex;
+         const inactiveIframe = iframes[inactiveIframeIndex];
+         
+         // Load the new sketch in the inactive iframe
+         inactiveIframe.src = sketches[newIndex];
+         
+         // When the new sketch loads, perform the cross-fade transition
+         inactiveIframe.onload = function() {
+           inactiveIframe.classList.add('active');
+           iframes[activeIframeIndex].classList.remove('active');
+           // Set focus to the new iframe so it can receive interactions
+           inactiveIframe.focus();
+           
+           // Update the indices
+           currentSketchIndex = newIndex;
+           activeIframeIndex = inactiveIframeIndex;
+         };
+       }
+       
+       document.getElementById('prevSketch').addEventListener('click', function() {
+         const newIndex = (currentSketchIndex - 1 + sketches.length) % sketches.length;
+         switchSketch(newIndex);
+       });
+       
+       document.getElementById('nextSketch').addEventListener('click', function() {
+         const newIndex = (currentSketchIndex + 1) % sketches.length;
+         switchSketch(newIndex);
+       });
+    </script>
 </body>
 </html> 

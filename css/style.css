@@ -11,6 +11,8 @@ body {
   height: 100%;
   border: none;
   z-index: 1;
+  opacity: 1;
+  transition: opacity 1s ease;
 }
 
 #header {
@@ -65,4 +67,8 @@ body {
   font-size: 18px;
   z-index: 4;
   display: none;
+}
+
+.fade-out {
+  opacity: 0;
 } 

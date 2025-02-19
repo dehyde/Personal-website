@@ -2,27 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Sketch 2 - Rotating Square</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+  <title>Sketch 1 - Bouncing Ball</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+  <script src="addScreenPositionFunction.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-<script>
-  let angle = 0;
-  function setup() {
-    createCanvas(windowWidth, windowHeight);
-    rectMode(CENTER);
-  }
-  function draw() {
-    background(220);
-    translate(width / 2, height / 2);
-    rotate(angle);
-    fill(0, 0, 255);
-    rect(0, 0, 100, 100);
-    angle += 0.05;
-  }
-  function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-  }
-</script>
 </body>
 </html> 

@@ -7,13 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
   cards.forEach(card => {
     card.addEventListener('click', function() {
       const folder = card.getAttribute('data-folder');
-      loader.style.display = 'block';
+      // Start fade-out effect
+      sketchFrame.classList.add('fade-out');
       header.textContent = card.textContent;
-      sketchFrame.src = folder + '/index.html';
+      setTimeout(function() {
+        sketchFrame.src = folder + '/index.html';
+      }, 1000);
     });
   });
 
   sketchFrame.addEventListener('load', function() {
-    loader.style.display = 'none';
+    // Remove fade-out to fade in the new sketch
+    sketchFrame.classList.remove('fade-out');
   });
 }); 
