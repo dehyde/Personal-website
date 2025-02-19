@@ -1,0 +1,112 @@
+/* Custom styles */
+:root {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar styles */
+.navbar {
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand i {
+    color: #7952b3;
+}
+
+/* Hero section */
+.hero {
+    background: linear-gradient(135deg, #7952b3 0%, #1266f1 100%);
+    padding: 120px 0;
+    margin-bottom: 80px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* Card hover effects */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dark mode adjustments */
+[data-bs-theme="dark"] .navbar {
+    backdrop-filter: blur(10px) brightness(0.8);
+}
+
+[data-bs-theme="dark"] .feature-card {
+    background: rgba(255,255,255,0.05);
+}
+
+/* Footer styles */
+.footer {
+    margin-top: 80px;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #7952b3 !important;
+}
+
+/* Component showcase */
+.component-demo {
+    padding: 2rem;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.02);
+    margin: 1rem 0;
+}
+
+[data-bs-theme="dark"] .component-demo {
+    background: rgba(255,255,255,0.02);
+}
+
+/* Blog post cards */
+.blog-card {
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Utility classes */
+.text-gradient {
+    background: linear-gradient(135deg, #7952b3 0%, #1266f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} 

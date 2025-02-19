@@ -1,0 +1,194 @@
+---
+layout: default
+title: Bootstrap & Jekyll Showcase
+---
+
+<!-- Hero Section -->
+<section class="hero text-light text-center">
+    <div class="container">
+        <h1 class="display-3 mb-4">Bootstrap & Jekyll</h1>
+        <p class="lead mb-4">A powerful combination for building modern websites</p>
+        <div class="d-flex justify-content-center gap-3">
+            <button class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#featuresModal">
+                <i class="bi bi-lightning-charge-fill me-2"></i>Get Started
+            </button>
+            <a href="#features" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-arrow-down-circle-fill me-2"></i>Learn More
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="container mb-5">
+    <div class="text-center mb-5">
+        <h2 class="display-4 text-gradient">Features</h2>
+        <p class="lead text-muted">Discover what makes this combination special</p>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center">
+                    <i class="bi bi-bootstrap display-4 text-primary mb-3"></i>
+                    <h3 class="card-title h4">Bootstrap 5</h3>
+                    <p class="card-text">Modern, responsive design with the latest Bootstrap features</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center">
+                    <i class="bi bi-gear-wide-connected display-4 text-primary mb-3"></i>
+                    <h3 class="card-title h4">Jekyll Power</h3>
+                    <p class="card-text">Static site generation with dynamic capabilities</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center">
+                    <i class="bi bi-moon-stars display-4 text-primary mb-3"></i>
+                    <h3 class="card-title h4">Dark Mode</h3>
+                    <p class="card-text">Built-in dark mode support with smooth transitions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Components Section -->
+<section id="components" class="container mb-5">
+    <div class="text-center mb-5">
+        <h2 class="display-4 text-gradient">Components</h2>
+        <p class="lead text-muted">Interactive Bootstrap components in action</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="component-demo">
+                <h4>Accordion Example</h4>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                Responsive Design
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Bootstrap's responsive grid system allows for flexible layouts that adapt to any screen size.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                Custom Components
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Extend Bootstrap's components with custom styles and functionality.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+            <div class="component-demo">
+                <h4>Progress & Alerts</h4>
+                <div class="progress mb-3" role="progressbar">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%">75%</div>
+                </div>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    Component loaded successfully!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog" class="container mb-5">
+    <div class="text-center mb-5">
+        <h2 class="display-4 text-gradient">Latest Posts</h2>
+        <p class="lead text-muted">Jekyll-powered blog functionality</p>
+    </div>
+
+    <div class="row g-4">
+        {% for i in (1..3) %}
+        <div class="col-md-4">
+            <div class="card blog-card">
+                <img src="https://source.unsplash.com/random/800x600?sig={{ i }}" class="card-img-top" alt="Blog post image">
+                <div class="card-body">
+                    <h5 class="card-title">Sample Blog Post {{ i }}</h5>
+                    <p class="card-text">This is a sample blog post demonstrating Jekyll's templating capabilities.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+                <div class="card-footer text-muted">
+                    {{ site.time | date: '%B %d, %Y' }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Features Modal -->
+<div class="modal fade" id="featuresModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Welcome to the Showcase!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>This showcase demonstrates various Bootstrap 5 and Jekyll features working together:</p>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Responsive Design
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Dark Mode Support
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Interactive Components
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Jekyll Templates
+                    </li>
+                </ul>
+                <div class="d-grid">
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Start Exploring</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Fade-in animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-card, .component-demo, .blog-card').forEach((el) => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+    });
+</script> 
