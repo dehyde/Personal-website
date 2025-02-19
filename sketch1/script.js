@@ -123,12 +123,12 @@ function preload() {
 }
 
 function setup() {
-    // Use the full available window dimensions.
-    cnv = createCanvas(windowWidth, windowHeight);
-    cnv.position(0, 0);
-
-    // Set WebGL attributes globally before creating graphics
+    // Set WebGL attributes globally before creating canvas and graphics
     setAttributes('alpha', true);
+    setAttributes('antialias', true);
+    cnv = createCanvas(windowWidth, windowHeight);
+    smooth();
+    cnv.position(0, 0);
 
     // Initialize rotations for each color space.
     Object.keys(cameraRotations).forEach(space => {
@@ -139,8 +139,7 @@ function setup() {
     });
     
     // Create and setup graphics buffers.
-    // The primary (selected) viewport is on the left:
-    let nonPrimaryWidth = height / 2; // width of the right column (each non-primary viewport is a square)
+    let nonPrimaryWidth = height / 2;
     let primaryWidth = width - nonPrimaryWidth;
     
     rgbGraphics = createGraphics(primaryWidth, height, WEBGL);
@@ -1410,6 +1409,9 @@ function drawRGBCube(g) {
     // Enable blending for transparency
     g.blendMode(g.BLEND);
     g.clear();
+    g.noFill();
+    g.strokeCap(ROUND);
+    g.strokeJoin(ROUND);
     
     // Make cube edges thinner and semi-transparent when dragging or when a control point is hovered.
     let interactive = (selectedPoint !== null && dragSnapAxis !== null) || (hoveredPoint !== null);
