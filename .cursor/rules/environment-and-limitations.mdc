@@ -1,0 +1,11 @@
+---
+description: This is for github pages, using Jekyll and Bootstrap
+globs: 
+---
+This project is using Jekyll and Bootstrap so make sure it fits all best practices of both as much as possible.
+This must work on github pages.
+
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to
